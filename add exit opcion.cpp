@@ -42,7 +42,7 @@ void registrarUsuario()
 	
 	FILE *file; //Cria o arquivo
 	file = fopen(arquivo, "w"); //cria o arquivo
-	fprintf(file,cpf); //salvo o valor da variï¿½vel
+	fprintf(file,cpf); //salvo o valor da variável
 	fclose(file);// fecha o arquivo
 	
 	file = fopen(arquivo, "a");
@@ -130,54 +130,48 @@ void deletarUsuario()
 
     if (remove(cpf) == 0)
         printf("Usuário com CPF %s deletado.\n", cpf);
-    	else
-        	printf("Usuário com CPF %s não encontrado.\n", cpf);
-        	system("pause");
-        	system("cls");
+    else
+        printf("Usuário com CPF %s não encontrado.\n", cpf);
+        system("pause");
+        system("cls");
 }
 
-int main() 
-{
-	setlocale(LC_ALL, "portuguese");
-	
-
-	
-	
-    	int opcao=0;
-    	int laco=1;
-    	
-		for(laco=1; laco==1;)
-		
-		{
-	system("cls");
-			setlocale(LC_ALL, "portuguese");
-    	
-    		printf("\t\tCARTÓRIO DA EBAC.\n\n");
-    		printf("Selecione a opção desejada:\n\n ");
-			printf("\t\t1- Registrar nomes\n");
-			printf("\t\t2- Consultar nomes\n");
-			printf("\t\t3- Deletar nomes\n\n");
-			printf("opção: ");
-        	scanf(" %s", &opcao);
-        	system("cls");
-
-        	switch (opcao) 
-			{
-        	    case '1':
-            	    registrarUsuario();
-            	    break;
-            	case '2':
-            	    consultarUsuario();
-            	    break;
-            	case '3':
-            		deletarUsuario();
-            		break;
-          	default:
-            	    printf("Opção inválida.\n");
-            	    system("pause");
-        		    break;
-			system("cls");
-        	}
-    	}
-	}
-
+int main() {
+    setlocale(LC_ALL, "portuguese");
+    
+    char opcao = '0';
+    int laco = 1;
+    
+    while (laco == 1) {
+        printf("\t\tCARTÓRIO DA EBAC.\n\n");
+        printf("Selecione a opção desejada:\n\n");
+        printf("\t\t1- Registrar nomes\n");
+        printf("\t\t2- Consultar nomes\n");
+        printf("\t\t3- Deletar nomes\n\n");
+        printf("\t\t4- Sair\n\n");
+        printf("opção: ");
+        scanf(" %c", &opcao);
+        
+        switch (opcao) {
+            case '1':
+                registrarUsuario();
+                break;
+            case '2':
+                consultarUsuario();
+                break;
+            case '3':
+                deletarUsuario();
+                break;
+            case '4':
+            	system("cls");
+                printf("Saindo...\n");
+                return 0;
+            default:
+                printf("Opção inválida.\n");
+                system("pause");
+                break;
+        }
+    }
+    
+    return 0;
+}
